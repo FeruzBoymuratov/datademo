@@ -12,6 +12,23 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+
+  // final usernameControll = TextEditingController();
+  // final passwordControll = TextEditingController();
+  // final emailControll = TextEditingController();
+  // final phoneNumberControll = TextEditingController();
+
+  // void _doLogIn(){
+  //   String username = usernameControll.text.toString().trim();
+  //   String password = passwordControll.text.toString().trim();
+  //   String email = emailControll.text.toString().trim();
+  //   String phoneNumber = phoneNumberControll.text.toString().trim();
+  //   print(username);
+  //   print(password);
+  //   print(email);
+  //   print(phoneNumber);
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +50,7 @@ class _LogInState extends State<LogIn> {
               height: 50,
             ),
             TextField(
+              //controller: usernameControll,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person_outline, color: Colors.grey.shade600,),
                 hintText: "User Name",
@@ -46,6 +64,7 @@ class _LogInState extends State<LogIn> {
               height: 20,
             ),
             TextField(
+              //controller: emailControll,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined, color: Colors.grey.shade600,),
                 hintText: "E_Mail",
@@ -59,6 +78,7 @@ class _LogInState extends State<LogIn> {
               height: 20,
             ),
             TextField(
+              //controller: phoneNumberControll,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.phone_outlined, color: Colors.grey.shade600,),
                 hintText: "Phone Number",
@@ -72,6 +92,7 @@ class _LogInState extends State<LogIn> {
               height: 20,
             ),
             TextField(
+              //controller: passwordControll,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock_outline_rounded, color: Colors.grey.shade600,),
                 hintText: "Password",
@@ -99,7 +120,13 @@ class _LogInState extends State<LogIn> {
                     ]),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_forward, color: Colors.white, size: 45,),
+              child: IconButton(
+                icon: Icon(Icons.arrow_forward,  size: 45,),
+                color: Colors.white,
+                onPressed: (){
+                  //_doLogIn;
+                },
+              ),
             ),
             SizedBox(
               height: 67,

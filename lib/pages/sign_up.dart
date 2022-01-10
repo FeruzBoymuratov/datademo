@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import 'log_in.dart';
 
@@ -11,6 +12,25 @@ class SignUp extends StatefulWidget {
 }
 
 class _LogInState extends State<SignUp> {
+
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void _doSignUp(){
+    String username = usernameController.text.toString().trim();
+    String password = passwordController.text.toString().trim();
+
+    var box = Hive.box("TODE");
+    box.put("username", username);
+    box.put("password", password);
+
+    String id = box.get("username");
+    String pw = box.get("password");
+
+    print(username);
+    print(password);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +41,7 @@ class _LogInState extends State<SignUp> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 130,
+              height: 13,
             ),
             Container(
               height: 50,
@@ -36,7 +56,7 @@ class _LogInState extends State<SignUp> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 1,
             ),
             Center(
               child: Text("Welcome Back!", style: TextStyle(color: Colors.white70, fontSize: 25, fontWeight: FontWeight.bold),),
@@ -48,9 +68,10 @@ class _LogInState extends State<SignUp> {
               child: Text("Sign in to continue", style: TextStyle(color: Colors.white70, fontSize: 16, fontWeight: FontWeight.bold),),
             ),
             SizedBox(
-              height: 50,
+              height: 5,
             ),
             TextField(
+              controller: usernameController,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person_outline, color: Colors.grey,),
                 hintText: "User Name",
@@ -61,9 +82,10 @@ class _LogInState extends State<SignUp> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 2,
             ),
             TextField(
+              controller: passwordController,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock_outline, color: Colors.grey,),
                 hintText: "Password",
@@ -97,10 +119,16 @@ class _LogInState extends State<SignUp> {
                 ]),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_forward, color: Colors.white, size: 45,),
+              child: IconButton(
+                icon: Icon(Icons.arrow_forward,  size: 45,),
+                color: Colors.white,
+                onPressed: (){
+                  _doSignUp;
+                },
+              ),
             ),
             SizedBox(
-              height: 100,
+              height: 10,
             ),
             Center(
               child: Row(
