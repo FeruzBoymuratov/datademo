@@ -1,12 +1,12 @@
-import 'package:datademo/pages/log_in.dart';
 import 'package:datademo/pages/sign_up.dart';
+import 'package:datademo/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
-  await Hive.openBox("TODE");
+  await Hive.openBox("tode");
 
   runApp(const MyApp());
 }
@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SignUp(),
+      home: const SignIn(),
       routes: {
+        SignIn.id:(context) => SignIn(),
         SignUp.id:(context) => SignUp(),
-        LogIn.id:(context) => LogIn(),
       },
     );
   }
