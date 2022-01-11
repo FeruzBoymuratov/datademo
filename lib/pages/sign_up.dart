@@ -13,21 +13,22 @@ class SignUp extends StatefulWidget {
 
 class _LogInState extends State<SignUp> {
 
-  // final usernameControll = TextEditingController();
-  // final passwordControll = TextEditingController();
-  // final emailControll = TextEditingController();
-  // final phoneNumberControll = TextEditingController();
+  final usernameControll = TextEditingController();
+  final passwordControll = TextEditingController();
+  final emailControll = TextEditingController();
+  final phoneNumberControll = TextEditingController();
 
-  // void _doSignUp(){
-  //   String username = usernameControll.text.toString().trim();
-  //   String password = passwordControll.text.toString().trim();
-  //   String email = emailControll.text.toString().trim();
-  //   String phoneNumber = phoneNumberControll.text.toString().trim();
-  //   print(username);
-  //   print(password);
-  //   print(email);
-  //   print(phoneNumber);
-  // }
+  void _doSignUp(){
+    String username = usernameControll.text.toString().trim();
+    String password = passwordControll.text.toString().trim();
+    String email = emailControll.text.toString().trim();
+    String phoneNumber = phoneNumberControll.text.toString().trim();
+
+    print(username);
+    print(password);
+    print(email);
+    print(phoneNumber);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +125,7 @@ class _LogInState extends State<SignUp> {
                 icon: Icon(Icons.arrow_forward,  size: 45,),
                 color: Colors.white,
                 onPressed: (){
-                  //_doSignUp;
+                  _doSignUp();
                 },
               ),
             ),

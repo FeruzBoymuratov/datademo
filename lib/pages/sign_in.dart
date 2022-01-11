@@ -27,7 +27,8 @@ class _LogInState extends State<SignIn> {
     String id = box.get("username");
     String pw = box.get("password");
 
-    Navigator.pushNamed(context, SignUp.id);
+    print(id);
+    print(pw);
 
   }
 
@@ -125,7 +126,7 @@ class _LogInState extends State<SignIn> {
                 icon: Icon(Icons.arrow_forward,  size: 45,),
                 color: Colors.white,
                 onPressed: (){
-                  _doSignIn;
+                  _doSignIn();
                 },
               ),
             ),
